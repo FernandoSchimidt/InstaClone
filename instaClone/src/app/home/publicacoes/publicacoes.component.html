@@ -1,0 +1,29 @@
+<div class="row" *ngFor="let p of publicacoes">
+  <div class="col d-flex justify-content-center">
+    <div class="card">
+      <div class="card-body">
+        <div style="height: 30px;width: 30px;border-radius: 50%; background-color: black;"></div>
+        <p class="card-text"> <strong>{{p.nome_usuario}}</strong></p>
+      </div>
+
+      <img class="card-img" [src]="p.url_imagem" />
+
+      <div class="card-body">
+        <p class="icons">
+          <a ><i class="far fa-heart"></i></a>
+          <a ><i class="far fa-comments"></i></a>
+          <a ><i class="far fa-paper-plane"></i></a>
+        </p>
+        <p class="card-text">
+          <strong>{{p.nome_usuario}}</strong> {{p.titulo}}
+        </p>
+        <p>
+          Likes 99 <a><i class="fas fa-heart" style="color: black;"></i></a>
+        </p>
+
+        <hr />
+        <input type="text" class="form-control comentario" placeholder="Adicione um comentário..." />
+      </div>
+    </div>
+  </div>
+</div>

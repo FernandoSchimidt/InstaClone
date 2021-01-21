@@ -1,0 +1,46 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" *ngIf="progressoPublicacao === 'pendente'">
+      <form [formGroup]="formulario" (ngSubmit)="publicar()">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Nova Publicação</h5>
+        </div>
+        <div class="modal-body">
+          <input type="file" class="form-control" accept="image/*" (change)="preparaImagemUpload($event)">
+          <br>
+          <input type="text" placeholder="Titulo da publicação" class="form-control" formControlName="titulo">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-success">Publicar</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="modal-content" *ngIf="progressoPublicacao === 'andamento'">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Pubblicando</h5>
+
+      </div>
+      <div class="modal-body">
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75"
+            aria-valuemin="0" aria-valuemax="100" [style.width]="porcentgemUpload + '%' "></div>
+        </div>
+        Progresso: {{porcentgemUpload}} %
+      </div>
+    </div>
+
+    <div class="modal-content" *ngIf="progressoPublicacao === 'concluido'">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Postado com sucesso</h5>
+
+      </div>
+      <div class="modal-body">
+        Sua Publicação foi realizad com sucesso!
+      </div>
+    </div>
+  </div>
+</div>
